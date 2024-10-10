@@ -1,0 +1,42 @@
+#container {
+    height: 600px;
+    width: 450px;
+    display: flex;
+    flex-direction: column
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+div {
+    border: 1px solid black;
+}
+
+.row {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#display {
+    width: 95%;
+    height: 90%;
+}
+
+button {
+    height: 90%;
+    flex: 1;
+    margin: 5px;
+    font-size: 40px;
+}
+
+#btn-0 {
+    flex: 2.333333333;
+}
+
