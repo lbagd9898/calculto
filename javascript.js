@@ -3,6 +3,7 @@ let operator = ''
 let b = 0
 let displayValue = ''
 let firstGuy = true
+const display = document.querySelector('#display')
 
 function add(a, b) {
     return a + b
@@ -56,6 +57,11 @@ document.querySelector('#equals').addEventListener('click', () => {
     console.log(b)
     console.log(operator)
     console.log(typeof(operator))
+    let operatorObj = window[operator]
+    result = operate(a, b, operatorObj)
+    displayValue = result
+    display.textContent = result
+
 })
 
 
