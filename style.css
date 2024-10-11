@@ -27,6 +27,11 @@ div {
 #display {
     width: 95%;
     height: 90%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    font-size: 60px;
+    gap: 2px;
 }
 
 button {
