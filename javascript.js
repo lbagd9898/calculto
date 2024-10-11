@@ -1,7 +1,8 @@
-let a = ''
+let a = 0
 let operator = ''
-let b = ''
+let b = 0
 let displayValue = ''
+let firstGuy = true
 
 function add(a, b) {
     return a + b
@@ -30,13 +31,33 @@ function populateDisplay (number) {
 
 document.querySelectorAll('.numeric').forEach((btn) => {
     btn.addEventListener('click', () => {
-        populateDisplay(btn.textContent)
+        populateDisplay(Number(btn.textContent))
     })
 })
 
 document.querySelector('#clear').addEventListener('click', () => {
     displayValue = ''
     populateDisplay(displayValue);
+});
+
+document.querySelectorAll('.operator').forEach((btn) => {
+    btn.addEventListener('click', () => {
+        a = Number(displayValue)
+        displayValue = ''
+        console.log(typeof(a))
+        console.log(a)
+        operator = btn.id
+        console.log(operator)
+    })
 })
+
+document.querySelector('#equals').addEventListener('click', () => {
+    b = Number(displayValue);
+    console.log(b)
+    console.log(operator)
+    console.log(typeof(operator))
+})
+
+
 
 
