@@ -3,6 +3,7 @@ let operator = ''
 let b = 0
 let displayValue = ''
 let firstGuy = true
+let positive = true 
 const display = document.querySelector('#display')
 
 function add(a, b) {
@@ -21,9 +22,14 @@ function divide(a, b) {
     return a / b
 }
 
+function remainder(a, b) {
+    return a % b
+}
+
 function operate (a, b, operator) {
     return operator(a, b)
 }
+
 
 function populateDisplay (number) {
     displayValue += number;
@@ -32,7 +38,9 @@ function populateDisplay (number) {
 
 document.querySelectorAll('.numeric').forEach((btn) => {
     btn.addEventListener('click', () => {
-        populateDisplay((btn.textContent))
+        if (displayValue.length <= 12) {
+            populateDisplay((btn.textContent))
+        }
     })
 })
 
@@ -63,13 +71,29 @@ document.querySelectorAll('.operator').forEach((btn) => {
 document.querySelector('#equals').addEventListener('click', () => {
     b = Number(displayValue);
     let operatorObj = window[operator]
-    result = operate(a, b, operatorObj).toFixed(11)
+    result = operate(a, b, operatorObj)
+    if ((result).toString().length > 9) {
+        result = result.toPrecision(9)
+    }
     displayValue = result
     display.textContent = result
     a = result
     firstGuy = false;
     displayValue = '';
 });
+
+document.querySelector('#change-sign').addEventListener('click', () => {
+    if (positive) {
+        displayValue = '-' + displayValue;
+        display.textContent = displayValue
+        console.log(Number(displayValue))
+        positive = false;
+    } else {
+        displayValue = displayValue.slice(1)
+        display.textContent = displayValue;
+        positive = true;
+    }
+})
 
 
 

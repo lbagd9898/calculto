@@ -2,7 +2,10 @@
     height: 600px;
     width: 450px;
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    background-color: 	#FF10F0;
+    border: 0px;
+
 }
 
 body {
@@ -10,6 +13,8 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
 
 div {
@@ -32,6 +37,7 @@ div {
     align-items: center;
     font-size: 60px;
     gap: 2px;
+    border-radius: 10px;
 }
 
 button {
@@ -39,9 +45,24 @@ button {
     flex: 1;
     margin: 5px;
     font-size: 40px;
+    background-color:#1F51FF;
+    border-radius: 10px;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 #btn-0 {
     flex: 2.333333333;
+}
+
+
+.numeric {
+    background-color: #39FF14
+}
+
+#display {
+    background-color: white;
 }
 
