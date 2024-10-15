@@ -38,31 +38,40 @@ document.querySelectorAll('.numeric').forEach((btn) => {
 
 document.querySelector('#clear').addEventListener('click', () => {
     displayValue = ''
+    a = 0
+    b = 0
+    operator = ''
+    firstGuy = true
     populateDisplay(displayValue);
 });
 
 document.querySelectorAll('.operator').forEach((btn) => {
     btn.addEventListener('click', () => {
-        a = Number(displayValue)
+        if (firstGuy) {
+            a = Number(displayValue)
+        }
+        else {
+            b = Number(displayValue)
+        }
+        firstGuy = false
         displayValue = ''
-        console.log(typeof(a))
-        console.log(a)
         operator = btn.id
-        console.log(operator)
+
     })
 })
 
 document.querySelector('#equals').addEventListener('click', () => {
     b = Number(displayValue);
-    console.log(b)
-    console.log(operator)
-    console.log(typeof(operator))
     let operatorObj = window[operator]
     result = operate(a, b, operatorObj)
     displayValue = result
     display.textContent = result
+    a = result
+    firstGuy = false;
+    displayValue = '';
+});
 
-})
+
 
 
 
