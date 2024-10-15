@@ -32,7 +32,7 @@ function populateDisplay (number) {
 
 document.querySelectorAll('.numeric').forEach((btn) => {
     btn.addEventListener('click', () => {
-        populateDisplay(Number(btn.textContent))
+        populateDisplay((btn.textContent))
     })
 })
 
@@ -63,13 +63,14 @@ document.querySelectorAll('.operator').forEach((btn) => {
 document.querySelector('#equals').addEventListener('click', () => {
     b = Number(displayValue);
     let operatorObj = window[operator]
-    result = operate(a, b, operatorObj)
+    result = operate(a, b, operatorObj).toFixed(11)
     displayValue = result
     display.textContent = result
     a = result
     firstGuy = false;
     displayValue = '';
 });
+
 
 
 
